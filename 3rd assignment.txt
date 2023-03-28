@@ -1,0 +1,77 @@
+*Write a program for analysis of people of certain age groups who are eligible for getting a suitable job if their 
+ condition and norms get satisfied using nested if statement
+
+using System;
+
+namespace Conditional
+{
+    class IfStatement
+    {
+        public static void Main(string[] args)
+        {
+            int age = 30;
+            if (age < 45)
+            {
+                if(age <= 26)
+                {
+                    Console.WriteLine("He is not eligible for getting job");
+                }
+                else
+                {
+                    Console.WriteLine("He is eligible for getting job");
+                }
+            }
+        }
+    }
+}
+
+*Compare the value of a variable called ‘value’ to check If the value of the variable is less than 10, 
+ then it will run one statement, or else it will run on another statement using if-else 
+
+using System;
+
+namespace Conditional
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int value = 20;
+            if (value < 10)
+            {
+                Console.WriteLine("Value is less than 10");
+            }
+            else
+            {
+                Console.WriteLine("Value is greater than 10");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+
+*Compare the value of a variable called ‘value’ to check if the value is equal to 1, or 2, 
+  or something totally different using switch statement
+
+using System;
+
+namespace DemoApplication
+{
+    class Programsss
+    {
+        public static void Main(string[] args)
+        {
+            int value = 1;
+            switch(value)
+            {
+                case 1 : Console.WriteLine("Value is 1");
+                break;
+                case 2 : Console.WriteLine("Value is 2");
+                break;
+                default : Console.WriteLine("Value is different");
+                break;
+            }
+        }
+    }
+}

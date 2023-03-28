@@ -1,0 +1,10 @@
+
+using System;
+public class MyClass{
+
+    public static void Main(){
+        var name="Srushti";
+        Console.WriteLine($"hello world this is {name}");
+        Console.ReadKey();
+    }
+}

@@ -1,0 +1,160 @@
+#The firm hires only two types of employees- either driver or developer. Now, you have to develop a software to store the information about them.
+using System;
+
+abstract class Employee 
+{
+  public abstract int GetSalary(); 
+}
+
+class Developer: Employee
+{
+  private int salary;
+  public Developer(int s)
+  {
+    salary = s;
+  }
+  public override int GetSalary()
+  {
+    return salary;
+  }
+}
+
+class Driver: Employee
+{
+  private int salary;
+  public Driver(int s)
+  {
+    salary = s;
+  }
+  public override int GetSalary()
+  {
+    return salary;
+  }
+}
+
+class Test
+{
+  static void Main(string[] args)
+  {
+    Developer d1 = new Developer(5000);
+    Driver d2 = new Driver(3000);
+
+    int a, b;
+
+    a = d1.GetSalary();
+    b = d2.GetSalary();
+    Console.WriteLine($"Salary of developer : {a}");
+    Console.WriteLine($"Salary of driver : {b}");
+  }
+}
+
+#Calculate area and perimeter of rectangle and square using interface method class
+using System;
+
+interface Shape
+{
+  int GetArea();
+  int GetPerimeter();
+}
+
+class Rectangle: Shape
+{
+  int length;
+  int breadth;
+
+  public Rectangle(int l, int b)
+  {
+    length = l;
+    breadth = b;
+  }
+
+  public int GetArea()
+  {
+    return length*breadth;
+  }
+
+  public int GetPerimeter()
+  {
+    return 2*(length+breadth);
+  }
+}
+
+class Square: Shape
+{
+  int side;
+
+  public Square(int s)
+  {
+    side = s;
+  }
+
+  public int GetArea()
+  {
+    return side*side;
+  }
+
+  public int GetPerimeter()
+  {
+    return 4*side;
+  }
+}
+
+class Test
+{
+  static void Main(string[] args)
+  {
+    Rectangle r = new Rectangle(7, 4);
+    Square s = new Square(4);
+
+    Console.WriteLine("Rectangle :");
+    Console.WriteLine($"Area : {r.GetArea()} Perimeter : {r.GetPerimeter()}");
+
+    Console.WriteLine("Square :");
+    Console.WriteLine($"Area : {s.GetArea()} Perimeter : {s.GetPerimeter()}");
+  }
+}
+
+#Write a program to print pattern using Nested Loop
+using System;
+namespace loop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(j);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
+#Using different inner and outer nested loop print the pattern
+using System;
+
+namespace Loop
+{
+	class NestedLoop
+	{
+		public static void Main(string[] args)
+		{
+			int i=1;
+			while (i<=5)
+			{
+				for (int j=1; j<=i; j++)
+				{
+					Console.Write(i + " ");
+				}
+
+				Console.WriteLine();
+				i++;
+			}
+		}
+	}
+}
