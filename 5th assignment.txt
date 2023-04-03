@@ -1,0 +1,172 @@
+#Problem 1
+Write a code to revrse a string. Take a string input from user. Print reverse of it. Input="ABC" Output=>"CBA"
+
+using System;
+
+public class Program {
+    public static void Main() {
+        Console.WriteLine("Enter a string: ");
+        string str = Console.ReadLine();
+        char[] arr = str.ToCharArray();
+        Array.Reverse(arr);
+        Console.WriteLine("Reverse string: {0}", new string(arr));
+    }
+}
+
+
+#Problem 2
+Write a extention method to count the number of vowels in a string provided by user.
+Input1 => "RAJU" Output1 => 2
+Input 2 => "Seema" Output 2=> 3
+*Note : The code should be able to work with uppercase as well as lower case values.
+
+using System;
+
+public static class StringExtensions {
+    public static int CountVowels(this string str) {
+        int count = 0;
+        for (int i = 0; i < str.Length; i++) {
+            if ("aeiouAEIOU".IndexOf(str[i]) >= 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        string input1 = "RAJU";
+        string input2 = "Seema";
+
+        Console.WriteLine("Number of vowels in {0}: {1}", input1, input1.CountVowels());
+        Console.WriteLine("Number of vowels in {0}: {1}", input2, input2.CountVowels());
+    }
+}
+
+#Problem 3
+In a list of names print the count/occurance of each name.
+Input 1=> ["RAJ", "raj", "Avi","Kirti"] Output 1=> Raj - 2 Avi - 1 Kirti - 1
+
+using System;
+
+using System.Collections.Generic;
+
+public class Program {
+    public static void Main() {
+        string[] names = { "RAJ", "raj", "Avi", "Kirti" };
+        Dictionary<string, int> countDict = new Dictionary<string, int>();
+
+        foreach (string name in names) {
+            string lowerCaseName = name.ToLower();
+            if (countDict.ContainsKey(lowerCaseName)) {
+                countDict[lowerCaseName]++;
+            } else {
+                countDict[lowerCaseName] = 1;
+            }
+        }
+
+        foreach (KeyValuePair<string, int> pair in countDict) {
+            Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+        }
+    }
+}
+
+#Problem 4
+Write a AppMath class, which should implements Add, Substract, Multiplication, Division of integer as well as double/decimal values.
+Also, input should not be retricted to 2 params
+eg int Add(int a, int b); double Add(double a, double b); decimal Add(decimal a, decimal b);
+input => Add(2,2,5,6,7) Output => 22
+input => Multiplication(2,2,5) Output => (225)=> 20
+
+using System;
+
+public class AppMath {
+    public static int Add(params int[] numbers) {
+        int sum = 0;
+        foreach (int num in numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+    
+    public static double Add(params double[] numbers) {
+        double sum = 0.0;
+        foreach (double num in numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+    
+    public static decimal Add(params decimal[] numbers) {
+        decimal sum = 0m;
+        foreach (decimal num in numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+    
+    public static int Substract(int a, int b) {
+        return a - b;
+    }
+    
+    public static double Substract(double a, double b) {
+        return a - b;
+    }
+    
+    public static decimal Substract(decimal a, decimal b) {
+        return a - b;
+    }
+    
+    public static int Multiplication(params int[] numbers) {
+        int product = 1;
+        foreach (int num in numbers) {
+            product *= num;
+        }
+        return product;
+    }
+    
+    public static double Multiplication(params double[] numbers) {
+        double product = 1.0;
+        foreach (double num in numbers) {
+            product *= num;
+        }
+        return product;
+    }
+    
+    public static decimal Multiplication(params decimal[] numbers) {
+        decimal product = 1m;
+        foreach (decimal num in numbers) {
+            product *= num;
+        }
+        return product;
+    }
+    
+    public static int Division(int a, int b) {
+        if (b == 0) {
+            throw new DivideByZeroException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+    
+    public static double Division(double a, double b) {
+        if (b == 0.0) {
+            throw new DivideByZeroException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+    
+    public static decimal Division(decimal a, decimal b) {
+        if (b == 0m) {
+            throw new DivideByZeroException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Console.WriteLine(AppMath.Add(2, 2, 5, 6, 7)); // Output: 22
+        Console.WriteLine(AppMath.Multiplication(2, 2, 5)); // Output: 20
+    }
+}
